@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FilmFlix</title>
+<link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">FilmFlix</div>
+
+    <input type="text" id="search" placeholder="Search movies...">
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Movies</a>
+        <a href="#">Series</a>
+        <a href="#">My List</a>
+    </nav>
+</header>
+
+
+<section class="hero">
+    <h1>Watch Movies Online</h1>
+    <p>Unlimited movies, TV shows and more</p>
+</section>
+
+
+<section class="movies">
+
+    {% for i in film_list %}
+        <div class="movie" data-video="{{ i.video.url }}">
+            <img src="{{ i.image.url }}">
+            <h3>{{ i.name }}</h3>
+        </div>
+    {% endfor %}
+
+  
+
+</section>
+
+
+<div class="player" id="player">
+
+    <span class="close" id="close">✖</span>
+
+    <video controls id="videoPlayer">
+        <source src="" type="video/mp4">
+    </video>
+
+</div>
+
+
+<script src="{% static 'script.js' %}"></script>
+
+</body>
+</html>
