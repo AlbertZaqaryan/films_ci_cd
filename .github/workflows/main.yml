@@ -27,6 +27,7 @@ jobs:
     
           echo "Pull latest code..."
           git pull origin main
+
     
           echo "Stop old containers..."
           sudo docker compose down
